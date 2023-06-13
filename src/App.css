@@ -1,38 +1,148 @@
 .App {
+  display: grid;
+  grid-template-rows: 84px auto;
+  margin: 32px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+thead {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 8px;
+}
+
+thead tr {
+  height: 48px;
+}
+
+th.location {
+  width: 8%;
+}
+
+th.more-options {
+  width:32px;
+}
+
+th {
+  padding: 0 48px;
+}
+
+td {
+  padding: 32px 48px;
+}
+
+td img {
+  border-radius: 100%;
+  width: 48px;
+}
+
+td.more-options {
   text-align: center;
+  font-weight: 1000;
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.category {
+  border: 1px solid #e0e0e0;
+  color: #e0e0e0;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 4px 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.category-technology {
+  border-color: gray;
+  color: black;
+}
+
+.category-footwear {
+  border-color: green;
+  color: green;
+}
+
+.category-travel {
+  border-color: fuchsia;
+  color: fuchsia;
+}
+
+.category-food {
+  border-color: red;
+  color: red;
+}
+
+.category-automotive {
+  border-color: #00a5ff;
+  color: #00a5ff;
+}
+
+.category-entertainment {
+  border-color: #ffa900;
+  color: #ffa900;
+}
+
+.category-apparel {
+  border-color: #970fae;
+  color: #970fae;
+}
+
+@media only screen and (max-width: 600px) {
+  table, thead {
+    border: none;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  thead tr, td.more-options, .category-row {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  td {
+    padding: 16px 18px;
+  }
+
+  tbody tr {
+    display: grid;
+    grid-template-areas:
+        "LO NA NA NA NA PR PR"
+        "DN DN DN DN DN DN DN"
+        "PD PD PD PD PD PD PD";
+    border: 1px solid #e0e0e0;
+    border-radius: 24px;
+    margin: 32px 0;
+  }
+
+  .name {
+    grid-area: NA;
+    font-weight: 600;
+    margin: auto 0;
+  }
+
+  .location {
+    grid-area: LO;
+    width: 0;
+  }
+
+  .purchase-date {
+    grid-area: PD;
+  }
+
+  .purchase-date:before {
+    content: 'Purchase Price \A';
+    white-space: pre;
+    font-weight: 600;
+  }
+
+  .description {
+    grid-area: DN;
+  }
+
+  .price {
+    grid-area: PR;
+    font-weight: 600;
+    margin: auto 0 auto auto;
   }
 }
